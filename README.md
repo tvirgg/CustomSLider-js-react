@@ -1,6 +1,3 @@
-# Let's create the documentation file in Markdown format.
-
-documentation_content = """
 # Документация для компонента Slider
 
 ## Описание
