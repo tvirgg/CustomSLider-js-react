@@ -100,23 +100,3 @@
 ### Адаптивные стили
 
 Для мобильных устройств используются медиа-запросы для настройки ширины, высоты и стилей слайдов. Центральный слайд на мобильных устройствах также получает дополнительный стиль `opacity: 1`.
-
-## Пример использования
-
-```javascript
-import React from 'react';
-import Slider from './components/Slider';
-
-const App = () => {
-  const slides = [
-    // Ваши слайды здесь
-  ];
-
-  return (
-    <div className="App">
-      <Slider slides={slides} />
-    </div>
-  );
-};
-
-export default App;
