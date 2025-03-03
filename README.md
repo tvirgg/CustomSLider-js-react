@@ -1,102 +1,103 @@
-# Документация для компонента Slider
+# Documentation for the Slider Component
 
-## Описание
+## Description
 
-Компонент `Slider` представляет собой слайдер с прокруткой слайдов. Поддерживает отображение на десктопе и мобильных устройствах, с различным количеством видимых слайдов и анимациями. Центральный слайд выделяется визуально.
+The `Slider` component is a scrollable slider that supports display on both desktop and mobile devices, with a varying number of visible slides and animations. The central slide is visually highlighted.
 
-## Основные параметры
+## Main Parameters
 
-- **visibleSlidesCount**: Количество видимых слайдов на десктопе.
-- **slidesLength**: Количество оригинальных слайдов.
-- **totalSlides**: Общее количество слайдов, включая клоны, чтобы обеспечить бесшовную прокрутку.
-- **centralSlideIndex**: Индекс центрального слайда для выделения.
+- **visibleSlidesCount**: The number of visible slides on the desktop.
+- **slidesLength**: The number of original slides.
+- **totalSlides**: The total number of slides, including clones, to ensure seamless scrolling.
+- **centralSlideIndex**: The index of the central slide for highlighting.
 
-## Состояния
+## States
 
-- **currentIndex**: Текущий индекс слайда.
-- **slideWidth**: Ширина слайда.
-- **currentZone**: Текущая зона курсора для навигации.
-- **isAnimating**: Флаг, указывающий на то, идет ли сейчас анимация.
-- **isLoading**: Флаг для отображения состояния загрузки.
-- **isMobile**: Флаг, определяющий, является ли устройство мобильным.
+- **currentIndex**: The current slide index.
+- **slideWidth**: The width of a slide.
+- **currentZone**: The current cursor zone for navigation.
+- **isAnimating**: A flag indicating whether an animation is in progress.
+- **isLoading**: A flag for displaying the loading state.
+- **isMobile**: A flag determining whether the device is mobile.
 
-## Реактивные хуки
+## Reactive Hooks
 
-1. **useEffect**: Отслеживает изменение размера окна и определяет, является ли устройство мобильным.
-2. **useLayoutEffect**: Устанавливает размеры слайдов в зависимости от ширины контейнера на десктопе.
+1. **useEffect**: Monitors window size changes and determines whether the device is mobile.
+2. **useLayoutEffect**: Sets slide dimensions based on container width on the desktop.
 
-## Методы
+## Methods
 
 ### nextSlide(times = 1, delay = 0)
 
-Переходит к следующему слайду. Аргументы:
+Moves to the next slide. Arguments:
 
-- `times`: Количество переходов.
-- `delay`: Задержка между переходами.
+- `times`: Number of transitions.
+- `delay`: Delay between transitions.
 
 ### prevSlide(times = 1, delay = 0)
 
-Переходит к предыдущему слайду. Аргументы:
+Moves to the previous slide. Arguments:
 
-- `times`: Количество переходов.
-- `delay`: Задержка между переходами.
+- `times`: Number of transitions.
+- `delay`: Delay between transitions.
 
 ### handleSwipeStart(e)
 
-Обрабатывает начало свайпа на мобильных устройствах.
+Handles the start of a swipe on mobile devices.
 
 ### handleSwipeEnd(e)
 
-Обрабатывает окончание свайпа на мобильных устройствах. Определяет направление свайпа и вызывает соответствующий метод перехода.
+Handles the end of a swipe on mobile devices. Determines the swipe direction and calls the corresponding transition method.
 
 ### getSlideStyle(index)
 
-Возвращает стили для слайда в зависимости от его позиции. Центральный слайд выделяется визуально.
+Returns styles for a slide depending on its position. The central slide is visually highlighted.
 
 ### getSlideClass(index)
 
-Возвращает классы для слайда в зависимости от его позиции. Центральный слайд получает класс `center`.
+Returns classes for a slide depending on its position. The central slide receives the `center` class.
 
 ### getSlideClassMobile(index)
 
-Возвращает классы для слайда на мобильных устройствах.
+Returns classes for a slide on mobile devices.
 
 ### renderDots()
 
-Отображает индикаторы (точки) для мобильной версии, показывающие текущий слайд.
+Displays indicators (dots) for the mobile version, showing the current slide.
 
-## Компонент Slide
+## Slide Component
 
-Компонент для отображения каждого слайда.
+A component for displaying each slide.
 
-### Пропсы
+### Props
 
-- `slide`: Объект с данными слайда (категория, название, год, изображение, цена).
-- `className`: Классы для слайда.
-- `style`: Стили для слайда.
-- `isCenter`: Флаг, указывающий, является ли слайд центральным.
+- `slide`: An object containing slide data (category, title, year, image, price).
+- `className`: Classes for the slide.
+- `style`: Styles for the slide.
+- `isCenter`: A flag indicating whether the slide is central.
 
-### Структура
+### Structure
 
-- `.slide-background`: Фоновое изображение слайда.
-- `.slide-content`: Содержимое слайда (категория, название, год, цена).
+- `.slide-background`: The slide's background image.
+- `.slide-content`: The slide's content (category, title, year, price).
 
 ## CSS
 
-### Основные стили
+### Main Styles
 
-- **.slider-container**: Контейнер для слайдера.
-- **.slider-wrapper**: Обертка для слайдера.
-- **.slider**: Основная область слайдов.
-- **.nav**: Кнопки навигации.
-- **.slide**: Стили для слайда.
-- **.slide.center**: Стили для центрального слайда.
-- **.slide-background**: Фоновое изображение слайда.
-- **.slide-content**: Содержимое слайда.
-- **.loading-screen**: Экран загрузки.
-- **.slide-dots**: Контейнер для индикаторов.
-- **.dot**: Индикатор слайда.
+- **.slider-container**: The container for the slider.
+- **.slider-wrapper**: The wrapper for the slider.
+- **.slider**: The main slide area.
+- **.nav**: Navigation buttons.
+- **.slide**: Styles for a slide.
+- **.slide.center**: Styles for the central slide.
+- **.slide-background**: The background image of a slide.
+- **.slide-content**: The slide's content.
+- **.loading-screen**: The loading screen.
+- **.slide-dots**: The container for indicators.
+- **.dot**: The slide indicator.
 
-### Адаптивные стили
+### Responsive Styles
 
-Для мобильных устройств используются медиа-запросы для настройки ширины, высоты и стилей слайдов. Центральный слайд на мобильных устройствах также получает дополнительный стиль `opacity: 1`.
+Media queries are used to adjust the width, height, and styles of slides for mobile devices. The central slide on mobile devices also receives an additional style `opacity: 1`.
+
